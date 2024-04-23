@@ -7,27 +7,27 @@ public class School implements Serializable {
 	/**
 	 * 学校コード:String
 	 */
-	private String cd;
+	private String school_cd;
 
 	/**
 	 * 学校名:String
 	 */
-	private String name;
+	private String school_name;
 
 	/**
 	 * ゲッター、セッター
 	 */
-	public String getCd() {
-		return cd;
+	public String getSchool_cd() {
+		return school_cd;
 	}
-	public void setCd(String cd) {
-		this.cd = cd;
+	public void setSchool_cd(String school_cd) {
+		this.school_cd = school_cd;
 	}
-	public String getName() {
-		return name;
+	public String getSchool_name() {
+		return school_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSchool_name(String school_name) {
+		this.school_name = school_name;
 	}
 
 

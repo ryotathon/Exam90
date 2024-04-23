@@ -35,7 +35,7 @@ public class ClassNumDao extends Dao {
 			statement = connection.prepareStatement("SELECT CLASS_NUM  FROM CLASS_NUM WHERE SCHOOL_CD = ?");
 
 			//プレースホルダー（？の部分）に値を設定
-			statement.setString(1,school.getCd());
+			statement.setString(1,school.getSchool_cd());
 
 			// プリペアードステートメントを実行
 			// SQL文を実行する

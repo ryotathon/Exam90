@@ -12,11 +12,11 @@
 	<h2>学生情報変更</h2>
 	<form action = "StudentUpdateExecute.action" method="post">
 
-		<label>入学年度</label>${ent_year}
-		<input type="text" name="ent_year" value="${ent_year}">
+		<p><label>入学年度</label><br>${ent_year}
+		<input type="hidden" name="ent_year" value="${ent_year}"></p>
 
-		<label>学生番号</label>${no}
-		<input type="text" name="no" value="${no}">
+		<p><label>学生番号</label><br>${no}
+		<input type="hidden" name="no" value="${no}"></p>
 
 		<label>氏名</label>
 		<input type="text" name="name" placeholder="氏名を入力してください"

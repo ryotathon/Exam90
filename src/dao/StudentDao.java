@@ -31,9 +31,11 @@ public class StudentDao  extends Dao{
 		PreparedStatement statement = null;
 
 		try{
+			System.out.println("aaa");
 			// プリペアードステートメントにSQL文をセット
 			statement = connection.prepareStatement("select * from student where no = ? ");
 			// プリペアードステートメントに学生番号をバインド
+			System.out.println("aaa2");
 			statement.setString(1, no);
 			// プリペアードステートメントを実行
 			ResultSet rSet = statement.executeQuery();
@@ -42,16 +44,18 @@ public class StudentDao  extends Dao{
 			SchoolDao schoolDao = new SchoolDao();
 
 			if (rSet.next()) {
+				System.out.println("aaa3");
 				//リザルトセットが存在するとき
 				//学生インスタンスに検索結果をセット
-				student.setNo(rSet. getString("no"));
-				student.setName (rSet. getString("name"));
-				student.setEntYear (rSet. getInt("ent_year"));
-				student.setClassNum(rSet. getString("class_num"));
-				student.setAttend(rSet. getBoolean("is_attend"));
+				student.setNo(rSet.getString("no"));
+				student.setName(rSet.getString("name"));
+				student.setEntYear(rSet.getInt("ent_year"));
+				student.setClassNum(rSet.getString("class_num"));
+				student.setAttend(rSet.getBoolean("is_attend"));
+				System.out.println("aaa5");
 				// 学校フィールドには学校コードで検索した学校インスタンスをセット
-				student.setSchool (schoolDao.get(rSet.getString("school_cd"))) ;
-
+				student.setSchool(schoolDao.get(rSet.getString("school_cd")));
+				System.out.println("aaa4");
 			} else{
 				//リザルトセットが存在しないとき
 				//学生インスタンスにnullをセット
@@ -160,7 +164,7 @@ public class StudentDao  extends Dao{
 		    //プリペアードステートメントにSQL文をセット
 		    statement = connection. prepareStatement (baseSql + condition + conditionIsAttend + order);
 		    //プリペアードステートメントに学校コードをバインド
-		    statement. setString(1, school. getCd ());
+		    statement. setString(1, school. getSchool_cd ());
 		    // プリペアードステートメントに入学年度をバインド
 		    statement. setInt (2, entYear) ;
 		    //プリペアードステートメントにクラス番号をバインド
@@ -229,7 +233,7 @@ public class StudentDao  extends Dao{
 		    //プリペアードステートメントにSQL文をセット
 		    statement = connection. prepareStatement (baseSql + condition + conditionIsAttend + order);
 		    //プリペアードステートメントに学校コードをバインド
-		    statement. setString(1, school. getCd ());
+		    statement. setString(1, school. getSchool_cd ());
 		    // プリペアードステートメントに入学年度をバインド
 		    statement. setInt (2, entYear) ;
 		    // プライベートステートメントを実行
@@ -291,7 +295,7 @@ public class StudentDao  extends Dao{
 		    //プリペアードステートメントにSQL文をセット
 		    statement = connection. prepareStatement (baseSql + conditionIsAttend + order);
 		    //プリペアードステートメントに学校コードをバインド
-		    statement. setString(1, school. getCd ());
+		    statement. setString(1, school. getSchool_cd ());
 		    // プライベートステートメントを実行
 		    rSet = statement.executeQuery ();
 		    list = postFilter(rSet,school);
@@ -355,7 +359,7 @@ public class StudentDao  extends Dao{
 				statement.setInt(3, student.getEntYear());
 				statement.setString(4, student.getClassNum());
 				statement.setBoolean(5, student.isAttend());
-				statement.setString(6, student.getSchool().getCd());
+				statement.setString(6, student.getSchool().getSchool_cd());
 			} else{
 				//学生が存在した場合
 				// プリペアードステートメントにUPDATE文をセット

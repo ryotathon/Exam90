@@ -32,8 +32,8 @@ public class LoginExecuteAction extends Action{
 		teacher.setPassword(password);
 		teacher.setName(name);
 
-		school.setCd(school_cd);
-		school.setName("大宮校");
+		school.setSchool_cd(school_cd);
+		school.setSchool_name("大宮校");
 
 		teacher.setSchool(school);//School型
 
